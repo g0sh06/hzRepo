@@ -1,0 +1,36 @@
+body{
+    background-color: gray;
+}
+.links{
+   border-style: solid;
+   border-radius: 40px;
+   border-width: 1px;
+   background-color: #457373;
+   font-size: 40px;
+   height: 60px;
+   
+   
+    
+}
+a{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-left: 190px;
+    margin-top: 15px;
+    text-decoration: none;
+    color: black;
+    
+
+}
+img{
+    width: 550px;
+    height: 350px;
+    margin: 70px;
+    display: inline-block;
+    text-align: center;
+    float: left;
+}
+.pictures{
+    text-align:center;
+}
+
+
