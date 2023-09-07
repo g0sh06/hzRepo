@@ -6,23 +6,22 @@ p{
     color: antiquewhite;
 }
 
-.links{
-   border-style: solid;
-   border-radius: 40px;
-   border-width: 1px;
-   background-color: rgb(177, 96, 21);
-   font-size: 40px;
-   
-    
+.links {
+    border-style: solid;
+    border-radius: 40px;
+    border-width: 2px;
+    border-color: rgb(0, 64, 121);
+    background-color: #FF5003;
+    font-size: 40px;
 }
-a{
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+a {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-left: 190px;
     margin-top: 15px;
     text-decoration: none;
     color: black;
     font-size: 35px;
-    
 
 }
 img{

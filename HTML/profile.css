@@ -13,12 +13,10 @@ td {
 .links {
     border-style: solid;
     border-radius: 40px;
-    border-width: 0.5px;
-    border-color: aliceblue;
-    background-color: rgb(12, 158, 199);
+    border-width: 2px;
+    border-color: rgb(0, 64, 121);
+    background-color: #FF5003;
     font-size: 40px;
-
-
 }
 
 a {
