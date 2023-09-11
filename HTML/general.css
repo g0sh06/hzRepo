@@ -7,10 +7,11 @@
     background-color: #1f2079;
     font-size: 40px;
     width: 80%;
-    margin-left: 200px;
+    margin-left: 130px;
+    
 }
 
-a{
+a {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-left: 190px;
     margin-top: 15px;
@@ -18,51 +19,66 @@ a{
     color: rgb(248, 230, 195);
     font-size: 35px;
     text-align: center;
-
-} 
-/*INDEX PAGE*/
-body{
-    background-color: gray;
-    
 }
-p{
-    color: rgb(0, 0, 0);
+
+* {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+/*INDEX PAGE*/
+p {
+    color: wheat;
     text-align: left;
     margin: 25px;
+    font-size: 25px;
 }
-#page1pictures{
-    width: 550px;
-    height: 350px;
-    margin: 70px;
+
+#page1pictures {
+    width: 450px;
+    height: 250px;
+    margin: 40px;
     text-align: center;
     border-radius: 30px;
 
-    
 }
-.picture1{
-    text-align:left;
+
+.pictures-home {
     border-style: none;
+    /* placing two divs next to each other*/
+    display: inline-flex;
+}
+
+.picture1 {
+    text-align: left;
+    border-style: solid;
     padding-right: 0px;
-    margin-left: 5%;
-    padding: 20px 60px;
-    
+    margin-left: 130px;
+    width: 800px;
+    border-color: rgba(182, 75, 182, 0.487);
+
 }
-.picture2{
+
+.picture2 {
     text-align: right;
-    display: inline-block;
+    border-style: solid;
     float: right;
-    border-style: none;
-    padding-left: 0px;
+    width: 800px;
+    border-color: rgba(182, 75, 182, 0.487);
+
+
 }
-aside a{
-    font-size: 20px;
+
+aside a {
+    font-size: 15px;
 }
-aside ul{
-    position:fixed;
+
+aside ul {
+    position: fixed;
     list-style: none;
     background-color: rgba(25, 77, 136, 0.322);
     height: 100%;
-    width: 120px;
+    width: 135px;
     top: 0;
     margin: 0 px;
     border-radius: 20px;
@@ -70,14 +86,16 @@ aside ul{
     margin-top: 0;
     padding: 0;
     overflow: hidden;
-    
+
 }
-button{
+
+button {
     background-color: rgba(255, 255, 255, 0);
     text-align: left;
     border-style: none;
 }
-h1{
+
+h1 {
     color: wheat;
 }
 
@@ -87,66 +105,62 @@ th,
 td {
     border: 1px solid black;
     margin: 20px;
-    color: rgb(255, 255, 255);
-    font-size: 40px;
-    
+    color: wheat;
+    font-size: 25px;
 }
 
-#pictures{
-    margin-left: 100px;
+#pictures {
+    margin-left: 20px;
     width: 500px;
     height: 500px;
+    margin-right: 200px;
 }
+
+#logo {
+    height: 100px;
+    width: 170px;
+    top: 0;
+    right: 0;
+    position: absolute;
+}
+
 /*FAQ PAGE*/
-dt,dd{
+dt,
+dd {
     color: wheat;
-    
+
 }
-dl{
+
+dl {
     font-size: 30px
 }
-h1{
+
+h1 {
     font-size: 50px
-    
 }
-
-/* DASHBOARD PAGE*/
-
 /* BLOG PAGE*/
-div{
-    border-style: solid;
+div {
+    border-style: none;
     margin: 20px;
-    
-    
+
+
 }
-#link{
-    color: bisque;
+
+#link {
+    color: wheat;
     font-size: 25px;
-    
+
 }
-.txt1{
-    width: 400px;
+
+.txt1 {
+    width: 1000px;
     padding: 10px;
-    text-align:left;
+    text-align: left;
     display: inline-block;
     float: left;
 }
-.txt2{
-    width: 400px;
-    padding: 10px;
-    text-align:left;
-    display: inline-block;
-    float: left;
-    
-}
-.txt3{
-    width: 400px;
-    padding: 10px;
-    text-align:left;
-    display: inline-block;
-    float: left;
-}
-.swot{
+
+.swot {
     width: 400px;
     padding: 10px;
     text-align: left;
@@ -154,10 +168,86 @@ div{
     float: left;
     height: 150px;
 }
-.programming{
+
+.programming {
     display: inline-block;
     text-align: left;
     float: left;
     height: 170px;
     width: 420px;
+}
+
+h3 {
+    font-size: 30px;
+    color: wheat;
+}
+
+h2 {
+    color: wheat;
+    font-size: 25px;
+}
+
+
+/* POST PAGE*/
+.list {
+    font-size: 18px;
+    color: wheat;
+    float: right;
+    border-style: solid;
+    border-radius: 30px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.main {
+    display: inline-flex;
+    float: right;
+}
+
+.article {
+    width: 1500px;
+    border-style: solid;
+    border-radius: 30px;
+    margin: 10px;
+    padding: 10px;
+}
+
+/*Stregths, Weaknesses, THreads, Opportunities*/
+#SWOT {
+    font-size: 20px;
+
+}
+
+.programming {
+    float: right;
+    border-style: solid;
+    border-radius: 30px;
+    margin: 10px;
+    padding: 10px;
+    
+
+}
+
+.programming ul {
+    font-size: 18px;
+    color: wheat;
+}
+.linksPost{
+    border-style: solid;
+    border-radius: 40px;
+    border-width: 2px;
+    border-color: rgb(0, 64, 121);
+    background-color: #1f2079;
+    font-size: 40px;
+    width: 200px;
+    margin-left: 130px;
+}
+.linkPost{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-left: 70px;
+    margin-top: 15px;
+    text-decoration: none;
+    color: rgb(248, 230, 195);
+    font-size: 35px;
+    text-align: center;
 }
