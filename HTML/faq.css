@@ -1,0 +1,19 @@
+/*FAQ PAGE*/
+dt,
+dd {
+    color: wheat;
+
+}
+
+dl {
+    font-size: 30px
+}
+
+h1 {
+    font-size: 50px
+}
+
+summary {
+    font-size: 40px;
+    color: wheat;
+}

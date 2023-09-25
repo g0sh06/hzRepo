@@ -1,0 +1,48 @@
+/* BLOG PAGE*/
+div {
+    border-style: none;
+    margin: 20px;
+
+
+}
+
+#link {
+    color: wheat;
+    font-size: 25px;
+
+}
+
+.txt1 {
+    width: 1000px;
+    padding: 10px;
+    text-align: left;
+    display: inline-block;
+    float: left;
+}
+
+.swot {
+    width: 400px;
+    padding: 10px;
+    text-align: left;
+    display: inline-block;
+    float: left;
+    height: 150px;
+}
+
+.programming {
+    display: inline-block;
+    text-align: left;
+    float: right;
+    height: 170px;
+    width: 420px;
+}
+
+h3 {
+    font-size: 30px;
+    color: wheat;
+}
+
+h2 {
+    color: wheat;
+    font-size: 25px;
+}

@@ -1,0 +1,41 @@
+/*INDEX PAGE*/
+p {
+    color: wheat;
+    text-align: left;
+    margin: 25px;
+    font-size: 25px;
+}
+
+#page1pictures {
+    width: 450px;
+    height: 250px;
+    margin: 40px;
+    text-align: center;
+    border-radius: 30px;
+
+}
+
+.pictures-home {
+    border-style: none;
+    /* placing two divs next to each other*/
+    display: inline-flex;
+}
+
+.picture1 {
+    text-align: left;
+    border-style: none;
+    padding-right: 0px;
+    margin-left: 130px;
+    width: 800px;
+    
+
+}
+
+.picture2 {
+    text-align: right;
+    border-style: none;
+    float: right;
+    width: 800px;
+}
+
+
