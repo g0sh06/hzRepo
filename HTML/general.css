@@ -8,6 +8,7 @@
     font-size: 30px;
     width: 80%;
     margin-left: 150px;
+    margin-top: 30px;
 
 }
 
@@ -34,8 +35,9 @@ body{
     position: absolute;
     top: 0px;
     right: 0px;
-    width: 120px;
-    height: 70px;
+    width: 140px;
+    height: 80px;
+    padding: 10px;
 }
 aside a {
     font-size: 15px;
@@ -47,12 +49,11 @@ aside ul {
     background-color: rgba(25, 77, 136, 0.322);
     height: 100%;
     width: 135px;
-    top: 0;
-    margin: 0 px;
     border-radius: 20px;
     text-align: center;
     margin-top: 0;
     padding: 0;
+    top: 0;
     overflow: hidden;
 
 }
