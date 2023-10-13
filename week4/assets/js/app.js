@@ -13,7 +13,6 @@ const monsterImages = [
   'assets/img/pink_monster.png',
   'assets/img/red_zombie.png'
 ];
-
 /**
  * a Helper function that returns a random integer number between and 
  * including the lower and upper limits
@@ -39,24 +38,40 @@ function randomPosition(element) {
  * and might prevent some funky errors.
  */
 window.addEventListener('load', function () {
-  const playfield = document.getElementById('playfield');
+  const playfield = document.getElementById("playfield");
+  let counter = 0;
   // TODO do something with that `playfield`
-  displayMonsters();
+  for (let imageSrc of monsterImages) {
+    const image = document.createElement("img");
+    image.src = imageSrc;
+    playfield.appendChild(image);
+    image.addEventListener("click", () => {
+      counter++;
+      if (counter++) {
+        scoreCounter(counter);
+        randomPosition(image);
+      }
+    });
+  }
 
 });
-function displayMonsters() {
-  for (let i = 0; 0 < monsterImages.length; i++) {
-    const getter = document.getElementById("playfield");
-    const createDiv = document.createElement('div');
-    const imageElement = document.createElement('img');
-    imageElement.src = monsterImages[i];
-    createDiv.appendChild(imageElement);
+function scoreCounter(counter) {
+  const trophy = document.getElementById("trophies");
+  switch (counter) {
+    case 10:
+      trophy.innerHTML = trophies[0];
+      break;
+    case 50:
+      trophy.innerHTML = trophies[1];
+    case 100:
+      trophy.innerHTML = trophies[2];
+      break;
+    case 150:
+      trophy.innerHTML = trophies[3];
+      break
+    case 250:
+      trophy.innerHTML = trophies[4];
+      break;
   }
 }
-
-window.addEventListener('click', function () {
-
-
-});
-
 // http://127.0.0.1:5500/week4/
