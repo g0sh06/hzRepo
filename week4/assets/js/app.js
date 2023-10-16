@@ -25,10 +25,11 @@ const monsterImages = [
 function randomIntBetween(lower, upper) {
   return Math.round(lower + (upper - lower) * Math.random());
 }
+/** @param {*} randomPosition generating random position for the monsters */
 function randomPosition(element) {
-  element.position = "absolute";
-  element.top = randomIntBetween(0, 100) + "px";
-  element.left = randomIntBetween(0, 100) + "px";
+  element.style.position = "absolute";
+  element.style.top = randomIntBetween(0, 700) + "px";
+  element.style.left = randomIntBetween(0, 1500) + "px";
 }
 /**
  * Initializes the app when the page is fully loaded.
@@ -39,12 +40,18 @@ function randomPosition(element) {
  */
 window.addEventListener('load', function () {
   const playfield = document.getElementById("playfield");
-  let counter = 0;
-  // TODO do something with that `playfield`
-  for (let imageSrc of monsterImages) {
+  const score = 0;
+  processingMonsters(playfield, score);
+});
+
+/** @param {processingMonsters} - creating img in DOM and then appending a monster to it.*/
+function processingMonsters(parent, counter) {
+  for (const imageSrc of monsterImages) {
     const image = document.createElement("img");
     image.src = imageSrc;
-    playfield.appendChild(image);
+    image.className = "playfield_item";
+    randomPosition(image);
+    parent.appendChild(image);
     image.addEventListener("click", () => {
       counter++;
       if (counter++) {
@@ -53,25 +60,33 @@ window.addEventListener('load', function () {
       }
     });
   }
+}
 
-});
+/** @param {*} scoreCounter function for checking the score of the player */
 function scoreCounter(counter) {
-  const trophy = document.getElementById("trophies");
+  const trophyList = document.getElementById("trophies");
+  const trophy = document.createElement("span");
   switch (counter) {
-    case 10:
-      trophy.innerHTML = trophies[0];
-      break;
-    case 50:
-      trophy.innerHTML = trophies[1];
-    case 100:
-      trophy.innerHTML = trophies[2];
-      break;
-    case 150:
-      trophy.innerHTML = trophies[3];
-      break
-    case 250:
-      trophy.innerHTML = trophies[4];
-      break;
+  case 10:
+    trophy.innerHTML = trophies[0];
+    trophyList.appendChild(trophy);
+    break;
+  case 50:
+    trophy.innerHTML = trophies[1];
+    trophyList.appendChild(trophy);
+    break;
+  case 100:
+    trophy.innerHTML = trophies[2];
+    trophyList.appendChild(trophy);
+    break;
+  case 150:
+    trophy.innerHTML = trophies[3];
+    trophyList.appendChild(trophy);
+    break;
+  case 250:
+    trophy.innerHTML = trophies[4];
+    trophyList.appendChild(trophy);
+    break;
   }
 }
 // http://127.0.0.1:5500/week4/
