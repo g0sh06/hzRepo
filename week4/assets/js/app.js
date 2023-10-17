@@ -54,10 +54,8 @@ function processingMonsters(parent, counter) {
     parent.appendChild(image);
     image.addEventListener("click", () => {
       counter++;
-      if (counter++) {
-        scoreCounter(counter);
-        randomPosition(image);
-      }
+      scoreCounter(counter);
+      randomPosition(image);
     });
   }
 }
