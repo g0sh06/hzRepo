@@ -11,16 +11,20 @@ const racedata = fetchFormula1Data();
  * Initializes the app. This function is called when the page is fully loaded
  * (the window load event).
  */
+const dropdown = document.getElementById('driver');
 const getElementsFromLaps = document.getElementById('laps');
 const sum = 0;
 const getFastestLap = document.getElementById('fastest');
 const fastestDriver = document.createElement('td');
 const fastestTime = document.createElement('td');
+const row = document.createElement('tr');
+const tdnameDriver = document.createElement('td');
+const tdLapTime = document.createElement('td');
 /**
  * doing everything in that function
  */
 function init() {
-  const dropdown = document.getElementById('driver');
+
   console.log(racedata);
   for (let i = 0; i < racedata.length; i++) {
     addingElementsToList(getElementsFromLaps, sum, racedata, i);
@@ -29,7 +33,7 @@ function init() {
   addFastestLap(fastestDriver, fastestTime, getFastestLap, racedata);
   button.addEventListener('click', pressedButton);
 }
-// REgister the `init` function on the load event (when the DOM is ready). 
+// Register the `init` function on the load event (when the DOM is ready). 
 window.addEventListener('load', init);
 
 const button = document.getElementById('submit');
@@ -37,61 +41,21 @@ const button = document.getElementById('submit');
  * function when the button is pressed
  */
 function pressedButton() {
+  //getting values from user's inputs
   const driverNumber = document.getElementById('driver').value;
   const driverTime = parseFloat(document.getElementById('lapTime').value);
   const sumOfLapTimes = 0;
   const arrayOfLaps = [];
   if (driverTime < 60) {
     window.alert("Please enter bigger number");
+  } else {
+    // pushing value of the lap to a certain object in the array(index starts from 0)
+    racedata[driverNumber - 1].laps.push(driverTime);
+    for (let i = 0; i < racedata.length; i++) {
+      addingElementsToList(getElementsFromLaps, sumOfLapTimes, racedata, i);
+    }
+    addFastestLap(fastestDriver, fastestTime, getFastestLap, racedata);
   }
-  // pushing value of the lap to a certain object in the array(index starts from 0)
-  racedata[driverNumber - 1].laps.push(driverTime);
-  for (let i = 0; i < racedata.length; i++) {
-    addingElementsToList(getElementsFromLaps, sumOfLapTimes, racedata, i);
-  }
-
-  for (let i = 0; i < racedata.length; i++) {
-    const fastestLapTime = Math.min(...racedata[i].laps);
-    const fastestLaptIndex = racedata[i].laps.indexOf(fastestLapTime);
-    const fastestLap = fastestLaptIndex + 1;
-    arrayOfLaps.push({ nameOfDriver: racedata[i].name, fastestLapTime, fastestLap });
-  }
-  arrayOfLaps.sort((a, b) => a.fastestLapTime - b.fastestLapTime);
-  if (arrayOfLaps.length > 0) {
-    smallestValue = arrayOfLaps[0].fastestLapTime;
-    driver = arrayOfLaps[0].nameOfDriver;
-  }
-  getFastestLap.remove;
-  console.log(arrayOfLaps[0].fastestLapTime);
-  fastestDriver.innerHTML = driver;
-  fastestTime.innerHTML = format(smallestValue);
-  fastestTime.className = 'time';
-  getFastestLap.appendChild(fastestDriver);
-  getFastestLap.appendChild(fastestTime);
-}
-
-/**
- * 
- * @param {*} getter get elements from certain HTML tag
- * @param {*} sumOfElements the sum of laps
- * @param {*} arrayOfElements in our situation racedata array
- * @param {*} index = i
- */
-function addingElementsToList(getter, sumOfElements, arrayOfElements, index) {
-  const row = document.createElement('tr');
-  const tdnameDriver = document.createElement('td');
-  const tdLapTime = document.createElement('td');
-  for (let j = 0; j < arrayOfElements[index].laps.length; j++) {
-    sumOfElements += arrayOfElements[index].laps[j];
-
-  }
-  tdnameDriver.innerHTML = arrayOfElements[index].name;
-  tdLapTime.innerHTML = format(sumOfElements);
-  tdLapTime.className = 'time';
-  row.appendChild(tdnameDriver);
-  row.appendChild(tdLapTime);
-  getter.appendChild(row);
-  sumOfElements = 0;
 }
 /**
  * 
@@ -103,12 +67,17 @@ function addFastestLap(tdElement1, tdElement2, getter, arrayofElements) {
   let driver = '';
   const arrayOfLaps = [];
   for (let i = 0; i < arrayofElements.length; i++) {
+    // determine the fastest lap of every driver
     const fastestLapTime = Math.min(...racedata[i].laps);
+    // getting the index of the fastest lap
     const fastestLaptIndex = racedata[i].laps.indexOf(fastestLapTime);
-    const fastestLap = fastestLaptIndex + 1;
-    arrayOfLaps.push({ nameOfDriver: racedata[i].name, fastestLapTime, fastestLap });
+    // adding 1 to the fastestLaptIndex, because we want real life index(in programming index starts from 0)
+    const lapIndex = fastestLaptIndex + 1;
+    // pushing everything into arrayOfLaps array with objects
+    arrayOfLaps.push({ nameOfDriver: racedata[i].name, fastestLapTime, lapIndex });
   }
-  arrayOfLaps.sort((a, b) => a.fastestLapTime - b.fastestLapTime);
+  arrayOfLaps.sort((first, seconds) => first.fastestLapTime - seconds.fastestLapTime);
+  console.log(arrayOfLaps);
   if (arrayOfLaps.length > 0) {
     smallestValue = arrayOfLaps[0].fastestLapTime;
     driver = arrayOfLaps[0].nameOfDriver;
@@ -127,6 +96,28 @@ function addFastestLap(tdElement1, tdElement2, getter, arrayofElements) {
  * ******************************************************
  */
 // FUNCTION, WHICH ARE NOT THAT IMPORTANT TO THE FUNCTIONALITY OF THE CODE
+/**
+ * 
+ * @param {*} getter get elements from certain HTML tag
+ * @param {*} sumOfElements the sum of laps
+ * @param {*} arrayOfElements in our situation racedata array
+ * @param {*} index = i
+ */
+function addingElementsToList(getter, sumOfElements, arrayOfElements, index) {
+  const row = document.createElement('tr');
+  const tdnameDriver = document.createElement('td');
+  const tdLapTime = document.createElement('td');
+  for (let j = 0; j < arrayOfElements[index].laps.length; j++) {
+    sumOfElements += arrayOfElements[index].laps[j];
+  }
+  tdnameDriver.innerHTML = arrayOfElements[index].name;
+  tdLapTime.innerHTML = format(sumOfElements);
+  tdLapTime.className = 'time';
+  row.appendChild(tdnameDriver);
+  row.appendChild(tdLapTime);
+  getter.appendChild(row);
+  sumOfElements = 0;
+}
 /**
  * 
  * @param {*} time takes a numbers and transforms it into mm:ss.ss
